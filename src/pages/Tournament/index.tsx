@@ -1,10 +1,10 @@
-import { Button } from "../../components/Button";
+import Button from "../../components/Button";
 import { TournamentSection } from "./styles";
 
 export default function Tournament(){
   return(
     <TournamentSection>
-      <Button text="Create a new tournament"/>
+      <Button>Create a new tournament</Button>
     </TournamentSection>
   )
 }

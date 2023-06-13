@@ -8,7 +8,7 @@ export const FlexCSS = css`
 
 export default createGlobalStyle`
   :root{
-    --primary: #1ED760;
+    --primary: #00BF58;
     --secondary: #312144;
     --white: #fff;
     --black: #000;
@@ -36,11 +36,14 @@ export default createGlobalStyle`
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
   }
+  
+  body{
+    background-color: var(--dark-300);
+  }
 
   section{
     width: 100%;
     height: 100vh;
     padding: 3rem 6rem;
-    background-color: var(--dark-300);
   }
 `;

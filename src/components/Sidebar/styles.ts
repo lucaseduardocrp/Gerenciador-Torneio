@@ -40,6 +40,10 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 1024px){
+    display: none;
+  }
 `;
 
 export const Logo = styled.div`
@@ -60,6 +64,4 @@ export const Logo = styled.div`
   }
 `;
 
-export const Login = styled.div`
-  margin-bottom: 1.6rem;
-`;
+

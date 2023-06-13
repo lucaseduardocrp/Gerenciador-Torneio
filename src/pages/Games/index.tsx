@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
-import { Button } from "../../components/Button";
 import { FlexCSS } from "../../styles/GlobalStyles";
+import Button from "../../components/Button";
 
 const GamesSection = styled.section`
   ${FlexCSS}
@@ -10,7 +10,7 @@ const GamesSection = styled.section`
 export default function Games(){
   return(
     <GamesSection>
-      <Button text="Random games" />
+      <Button>Random games</Button>
     </GamesSection>
   )
 }

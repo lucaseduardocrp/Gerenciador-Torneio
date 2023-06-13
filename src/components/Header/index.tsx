@@ -1,25 +1,35 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
-import { Container, Logo } from "./styles";
+import { BurgerMenu, HeaderContainer, Logo } from './styles';
 
 import { FaTable, FaTrophy } from "react-icons/fa";
 import { MdOutlineSportsSoccer } from "react-icons/md";
-import { IoShirt } from "react-icons/io5";
+import { IoClose, IoMenu, IoShirt } from "react-icons/io5";
 import { BsPersonLinesFill } from "react-icons/bs";
 
-import SignIn from "../SignIn";
+import SignIn from '../SignIn';
 
-export function Sidebar() {
+export function Header() {
+  const [active, setActive] = useState(false)
+  const toggleBurger = () => {
+    setActive(!active)
+  }
+
   return (
-    <Container>
+    <HeaderContainer>
       <Logo>
-        <img src="/Logo.svg" alt="Logo Image" />
+        <img src="/Logo.svg" alt="Logo" />
         <h1>iWinner</h1>
       </Logo>
 
-      <SignIn />
+      <BurgerMenu onClick={toggleBurger}>
+        {!active ? <IoMenu /> : <IoClose/>}
+      </BurgerMenu>
 
-      <nav>
+      <nav className={active ? 'open' : 'close'}>
+        <SignIn />
+
         <ul>
           <li>
             <NavLink to='/'><FaTrophy /> Tournaments</NavLink>
@@ -38,6 +48,6 @@ export function Sidebar() {
           </li>
         </ul>
       </nav>
-    </Container>
+    </HeaderContainer>
   );
 }

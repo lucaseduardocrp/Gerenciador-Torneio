@@ -10,14 +10,17 @@ import Statistics from "./pages/Statistics";
 import { Sidebar } from "./components/Sidebar";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header";
 
 const Container = styled.div`
   display: flex;
-  `;
+`;
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Header />
+
       <Container>
         <Sidebar />
           <Routes>
