@@ -11,9 +11,9 @@ export default function SignIn() {
   const [user, setUser] = useState<User | null>(null)
   
   const handleGoogleLogin = () => {
-    const singInProvider = new GoogleAuthProvider()
+    const provider = new GoogleAuthProvider()
 
-    signInWithPopup(auth, singInProvider)
+    signInWithPopup(auth, provider)
     .then((result) => {
       console.log('result here',result)
       setUser(result.user)
