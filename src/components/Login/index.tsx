@@ -2,11 +2,16 @@ import { Container } from "./styles";
 import { BsBoxArrowInRight } from "react-icons/bs";
 
 import Button from "../Button";
-import useLogin from "../../Hooks/useLogin";
+import { useContext } from "react";
+
+import { LoginContext } from "../../context/LoginContext";
+// import useLogin from "../../Hooks/useLogin";
 
 export default function Login() {
 
-  const { handleGoogleLogin, user } = useLogin()
+  // const { handleGoogleLogin, user } = useLogin()
+
+  const {handleGoogleLogin, user} = useContext(LoginContext)
 
   return(
     <Container>
