@@ -16,7 +16,11 @@ export const AuthSignInProvider = ({children}: Props) => {
 
     signInWithPopup(auth, provider)
     .then((result) => {
-      setUser(result.user)
+      const credential =  GoogleAuthProvider.credentialFromResult(result);
+      const token = credential?.accessToken;
+      const user = result.user;
+      setUser(user)
+      sessionStorage.setItem('@AuthFirebase:token', token);
       sessionStorage.setItem('@AuthFirebase:user', JSON.stringify(setUser));
     })
     .catch((error) => {

@@ -25,7 +25,7 @@ export default function SignIn() {
 
   return(
     <SignInContainer>
-      <Button justifyContent="start" onClick={handleGoogleLogin}>
+      <Button onClick={handleGoogleLogin}>
         
         {user ? (
           <div className={user ? 'open userInfos' : 'close'}>
