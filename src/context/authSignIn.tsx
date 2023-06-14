@@ -2,13 +2,13 @@ import { GoogleAuthProvider, User, signInWithPopup } from "firebase/auth"
 import { ReactNode, createContext, useState } from "react"
 import { auth } from "../services/firebase"
 
-interface Props {
-  children: ReactNode;
+interface FuncProps {
+  handleGoogleLogin: () => void
 }
 
-export const AuthSignInContext = createContext<User | null>(null)
+export const AuthSignInContext = createContext< FuncProps | null>(null)
 
-export const AuthSignInProvider = ({children}: Props) => {
+export const AuthSignInProvider = ({children}: {children: ReactNode}) => {
   const [user, setUser] = useState<User | null>(null)
   
   const handleGoogleLogin = () => {
@@ -16,15 +16,17 @@ export const AuthSignInProvider = ({children}: Props) => {
 
     signInWithPopup(auth, provider)
     .then((result) => {
-      const credential =  GoogleAuthProvider.credentialFromResult(result);
-      const token = credential?.accessToken;
-      const user = result.user;
-      setUser(user)
-      sessionStorage.setItem('@AuthFirebase:token', token);
+      setUser(result.user)
       sessionStorage.setItem('@AuthFirebase:user', JSON.stringify(setUser));
     })
     .catch((error) => {
       console.log(error)
     })
   };
+
+  return(
+    <AuthSignInContext.Provider value={{handleGoogleLogin}}>
+      {children}
+    </AuthSignInContext.Provider>
+  )
 }

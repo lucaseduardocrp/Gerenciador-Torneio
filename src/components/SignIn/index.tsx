@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { GoogleAuthProvider, User, signInWithPopup } from 'firebase/auth';
-import { auth } from '../../services/firebase';
+// import { useState } from "react";
+// import { GoogleAuthProvider, User, signInWithPopup } from 'firebase/auth';
+// import { auth } from '../../services/firebase';
 
 import { SignInContainer } from "./styles";
 import { BsBoxArrowInRight } from "react-icons/bs";
@@ -8,24 +8,24 @@ import { BsBoxArrowInRight } from "react-icons/bs";
 import Button from "../Button";
 
 export default function SignIn() {
-  const [user, setUser] = useState<User | null>(null)
+  // const [user, setUser] = useState<User | null>(null)
   
-  const handleGoogleLogin = () => {
-    const provider = new GoogleAuthProvider()
+  // const handleGoogleLogin = () => {
+  //   const provider = new GoogleAuthProvider()
 
-    signInWithPopup(auth, provider)
-    .then((result) => {
-      console.log('result here',result)
-      setUser(result.user)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+  //   signInWithPopup(auth, provider)
+  //   .then((result) => {
+  //     console.log('result here',result)
+  //     setUser(result.user)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }
 
   return(
     <SignInContainer>
-      <Button onClick={handleGoogleLogin}>
+      <Button onClick={() => {console.log('oi')}}>
         
         {user ? (
           <div className={user ? 'open userInfos' : 'close'}>
