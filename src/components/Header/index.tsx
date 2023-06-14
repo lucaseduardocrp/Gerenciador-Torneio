@@ -2,13 +2,9 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import { BurgerMenu, HeaderContainer, Logo } from './styles';
+import { TableIcon, TrophyIcon, BallIcon, StatisticsIcon, ShirtIcon, CloseIcon, BurgerIcon } from "../Icons";
 
-import { FaTable, FaTrophy } from "react-icons/fa";
-import { MdOutlineSportsSoccer } from "react-icons/md";
-import { IoClose, IoMenu, IoShirt } from "react-icons/io5";
-import { BsPersonLinesFill } from "react-icons/bs";
-
-import SignIn from '../SignIn';
+import Login from '../Login';
 
 export function Header() {
   const [active, setActive] = useState(false)
@@ -24,27 +20,27 @@ export function Header() {
       </Logo>
 
       <BurgerMenu onClick={toggleBurger}>
-        {!active ? <IoMenu /> : <IoClose/>}
+        {!active ? <BurgerIcon /> : <CloseIcon/>}
       </BurgerMenu>
 
       <nav className={active ? 'open' : 'close'}>
-        <SignIn />
+        <Login />
 
         <ul>
           <li>
-            <NavLink to='/'><FaTrophy /> Tournaments</NavLink>
+            <NavLink to='/'><TrophyIcon /> Tournaments</NavLink>
           </li>
           <li>
-            <NavLink to='/games'><MdOutlineSportsSoccer /> Games</NavLink>
+            <NavLink to='/games'><BallIcon /> Games</NavLink>
           </li>
           <li>
-            <NavLink to='/table'><FaTable /> Tables</NavLink>
+            <NavLink to='/table'><TableIcon /> Tables</NavLink>
           </li>
           <li>
-            <NavLink to='/teams'><IoShirt /> Teams</NavLink>
+            <NavLink to='/teams'><ShirtIcon /> Teams</NavLink>
           </li>
           <li>
-            <NavLink to='/statistics'><BsPersonLinesFill /> Statistics</NavLink>
+            <NavLink to='/statistics'><StatisticsIcon /> Statistics</NavLink>
           </li>
         </ul>
       </nav>

@@ -7,7 +7,7 @@ import { MdOutlineSportsSoccer } from "react-icons/md";
 import { IoShirt } from "react-icons/io5";
 import { BsPersonLinesFill } from "react-icons/bs";
 
-import SignIn from "../SignIn";
+import Login from "../Login";
 
 export function Sidebar() {
   return (
@@ -17,7 +17,7 @@ export function Sidebar() {
         <h1>iWinner</h1>
       </Logo>
 
-      <SignIn />
+      <Login />
 
       <nav>
         <ul>

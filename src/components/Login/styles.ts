@@ -1,20 +1,13 @@
 import { styled } from "styled-components";
 import { FlexCSS } from "../../styles/GlobalStyles";
 
-export const SignInContainer = styled.div`
+export const Container = styled.div`
   margin-bottom: 1.6rem;
 
-  .open{
-    display: block;
-  }
-  .close{
-    display: none;
-  }
-
-  .userInfos, span{
+  .userInfos{
     ${FlexCSS}
     gap: 1rem;
-
+    
     span{
       font-size: var(--xsm);
     }
